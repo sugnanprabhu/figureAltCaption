@@ -58,6 +58,7 @@ class FigureCaptionProcessor(BlockProcessor):
     def run(self, parent, blocks): # how to process the block?
         raw_block = blocks.pop(0)
         captionText = self.FIGURES_RE.search(raw_block).group(1)
+        captionText = "<p style=\"text-align: center;\">" + captionText + "</p>"
 
         # create figure
         figure = etree.SubElement(parent, 'figure')
